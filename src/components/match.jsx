@@ -1,13 +1,11 @@
 import escudo from '../img/barsaescudo.png'
 
-export function Match(){
+export function Match(props){
   return (
     <>
     <div className="matchMain">
       <Team />
-      <Puntuacion />
-      <Puntuacion />
-      <Puntuacion />
+      <Puntuacion name={props.num}/>
       <Team />
     </div>
     </>
@@ -22,8 +20,17 @@ function Team(){
     </div>)
 }
 
-function Puntuacion(){
+function Puntuacion(i){
+  
+
+  const onChangeRadio = function(event){
+    console.log(event.target.value)
+  }
   return (
-    <input type="checkbox"></input>
+    <>
+        <input type="radio" className='radioButton' name={i.name} onChange={onChangeRadio}></input>
+        <input type="radio" className='radioButton' name={i.name} onChange={onChangeRadio}></input>
+        <input type="radio" className='radioButton' name={i.name} onChange={onChangeRadio}></input>  
+    </>
   )
 }
