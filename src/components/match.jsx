@@ -5,7 +5,7 @@ export function Match(props){
     <>
     <div className="matchMain">
       <Team />
-      <Puntuacion name={props.num}/>
+      <Puntuacion name={props.num} isReadOnly={props.isReadOnly}/>
       <Team />
     </div>
     </>
@@ -20,17 +20,17 @@ function Team(){
     </div>)
 }
 
-function Puntuacion(i){
-  
+function Puntuacion(props){
+  const isReadOnly = props.isReadOnly;
 
   const onChangeRadio = function(event){
-    console.log(event.target.value)
+    console.log(props.isReadOnly)
   }
   return (
     <>
-        <input type="radio" className='radioButton' name={i.name} onChange={onChangeRadio}></input>
-        <input type="radio" className='radioButton' name={i.name} onChange={onChangeRadio}></input>
-        <input type="radio" className='radioButton' name={i.name} onChange={onChangeRadio}></input>  
+        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false}></input>
+        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false}></input>
+        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false}></input>  
     </>
   )
 }

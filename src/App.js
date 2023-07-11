@@ -9,7 +9,7 @@ function App() {
   )
 
   const resultsMatch = [...Array(n)].map((e,i)=>
-    <Match key={i+n} num={i+n} />
+    <Match key={i+n} num={i+n} isReadOnly={true}/>
   )
 
   return (
