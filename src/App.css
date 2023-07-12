@@ -28,5 +28,20 @@
   
 }
 
+.btnSimular{
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  background-color: #2222BB;
+  border-radius: 15px;
+  color: silver;
+  font-size: 18px;
+  width: 15em;
+  height: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 
