@@ -5,7 +5,7 @@ export function Match(props){
     <>
     <div className="matchMain">
       <Team />
-      <Puntuacion name={props.num} isReadOnly={props.isReadOnly}/>
+      <Puntuacion name={props.num} isReadOnly={props.isReadOnly} resultado={props.resultado}/>
       <Team />
     </div>
     </>
@@ -22,15 +22,16 @@ function Team(){
 
 function Puntuacion(props){
   const isReadOnly = props.isReadOnly;
+  const resultado = props.resultado
 
   const onChangeRadio = function(event){
     console.log(props.isReadOnly)
   }
   return (
     <>
-        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false}></input>
-        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false}></input>
-        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false}></input>         
+        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false}   checked={resultado==0?true:false}></input>
+        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false}   checked={resultado==1?true:false}></input>
+        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false}   checked={resultado==2?true:false}></input>         
     </>
   )
 }

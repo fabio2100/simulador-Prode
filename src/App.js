@@ -5,15 +5,25 @@ function App() {
 
   const n = 8;
   const matchs = [...Array(n)].map((e,i)=>
-    <Match key={i} num={i}/>
+    <Match key={i} num={i} numberOfMatch={i}/>
   )
 
-  const resultsMatch = [...Array(n)].map((e,i)=>
-    <Match key={i+n} num={i+n} isReadOnly={true}/>
+  let resultsMatch = [...Array(n)].map((e,i)=>
+    <Match key={i+n} num={i+n} isReadOnly={true} resultado={4} numberOfMatch={i}/>
   )
 
   const simular = value => () => {
-    console.log('aa')
+    /*resultsMatch.forEach((match)=>{
+      const resultOfMatch = Math.floor(Math.random()*3)
+      console.log({resultOfMatch});
+      console.log({match})
+      match.props.resultado = resultOfMatch;
+      
+    })*/
+    const resultOfMatch = Math.floor(Math.random()*3);
+    let resultsMatch = [...Array(n)].map((e,i)=>{
+      <Match key={i+n} num={i+n} isReadOnly={true} resultado={4} numberOfMatch={i}/>   
+    }) 
   }
 
   return (
