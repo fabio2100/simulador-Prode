@@ -3,22 +3,24 @@ import './App.css';
 import { Match } from './components/match';
 
 function App() {
-
-  const [resultados,setResultados] = useState([]);
-  const [simulado,setSimulado] = useState(false)
   const n = 8;
   const matchs = [...Array(n)].map((e,i)=>
-    <Match key={i} num={i} numberOfMatch={i}/>
+  <Match key={i} num={i} numberOfMatch={i} isReadOnly={false}/>
   )
-
+  
   const restulsMatch = ([...Array(n)].map((e,i)=>
-    <Match key={i+n} num={i+n} isReadOnly={true} resultado={Math.floor(Math.random()*3)}  numberOfMatch={i}/>
+  <Match key={i+n} num={i+n} isReadOnly={true}  numberOfMatch={i}/>
   ))
-
+  
+  
+  const [resultados,setResultados] = useState([restulsMatch])
   
   const simular = prevComponents => function() {
-    console.log(restulsMatch)
-    setResultados(restulsMatch)
+    const restulsMatchSimulado = ([...Array(n)].map((e,i)=>
+    <Match key={i+n} num={i+n} isReadOnly={true} resultado={Math.floor(Math.random()*3)}  numberOfMatch={i}/>
+  ))
+    console.log(restulsMatchSimulado)
+    setResultados(restulsMatchSimulado)
   }
 
 
@@ -35,7 +37,7 @@ function App() {
       </div>
       <button
       type="button"
-      value="Simular voto"
+      value="Simular"
       class="btnSimular"
       onClick={simular()}
     >

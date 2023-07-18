@@ -26,12 +26,13 @@ function Puntuacion(props){
 
   const onChangeRadio = function(event){
     console.log(props.isReadOnly)
+    console.log({resultado})
   }
-  return (
+  return (  
     <>
-        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false} checked={resultado===0 ? true : false}></input>
-        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false} checked={resultado===1 ? true : false}></input>
-        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false} checked={resultado===2 ? true : false}></input>         
+        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false} checked={resultado===0 && resultado }></input>
+        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false} checked={resultado===1 && resultado }></input>
+        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false} checked={resultado===2 && resultado }></input>         
     </>
   )
 }
