@@ -17,7 +17,7 @@ function App() {
   
   const simular = prevComponents => function() {
     const restulsMatchSimulado = ([...Array(n)].map((e,i)=>
-    <Match key={i+n} num={i+n} isReadOnly={true} resultado={Math.floor(Math.random()*3)}  numberOfMatch={i}/>
+    <Match key={i+n} num={i+n} isReadOnly={true} resultado={Math.floor(Math.random()*3)+1}  numberOfMatch={i}/>
   ))
     console.log(restulsMatchSimulado)
     setResultados(restulsMatchSimulado)

@@ -1,4 +1,5 @@
-import escudo from '../img/barsaescudo.png'
+import escudo from '../img/barsaescudo.png';
+import { useState } from 'react';
 
 export function Match(props){
   return (
@@ -21,18 +22,19 @@ function Team(){
 }
 
 function Puntuacion(props){
+  const [elegido,setElegido] = useState();
   const isReadOnly = props.isReadOnly;
-  const resultado = props.resultado; 
+  var resultado = props.resultado; 
 
   const onChangeRadio = function(event){
     console.log(props.isReadOnly)
-    console.log({resultado})
+    setElegido(1);
   }
   return (  
     <>
-        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false} checked={resultado===0 && resultado }></input>
-        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false} checked={resultado===1 && resultado }></input>
-        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false} checked={resultado===2 && resultado }></input>         
+        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false} checked={resultado===1 || elegido === 1}></input>
+        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false} checked={resultado===2}></input>
+        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false} checked={resultado===3}></input>         
     </>
   )
 }
