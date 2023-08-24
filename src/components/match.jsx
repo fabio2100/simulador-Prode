@@ -26,15 +26,20 @@ function Puntuacion(props){
   const isReadOnly = props.isReadOnly;
   var resultado = props.resultado; 
 
-  const onChangeRadio = function(event){
-    console.log(props.isReadOnly)
+  const onChangeRadio1 = function(event){
     setElegido(1);
   }
+  const onChangeRadio2 = function(event){
+    setElegido(2);
+  }
+  const onChangeRadio3 = function(event){
+    setElegido(3);
+  }
   return (  
-    <>
-        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false} checked={resultado===1 || elegido === 1}></input>
-        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false} checked={resultado===2}></input>
-        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio} disabled={isReadOnly ? true : false} checked={resultado===3}></input>         
+    <> 
+        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio1}  disabled={isReadOnly ? true : false} checked={resultado===1 || elegido === 1}></input>
+        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio2}  disabled={isReadOnly ? true : false} checked={resultado===2 || elegido === 2}></input>
+        <input type="radio" className='radioButton' name={props.name}  onChange={onChangeRadio3} disabled={isReadOnly ? true : false} checked={resultado===3 || elegido === 3}></input>         
     </>
   )
 }
