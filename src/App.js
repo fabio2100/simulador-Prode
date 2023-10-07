@@ -3,9 +3,11 @@ import './App.css';
 import { Match } from './components/match';
 
 function App() {
+  
+
   const n = 8;
   const matchs = [...Array(n)].map((e,i)=>
-  <Match key={i} num={i} numberOfMatch={i} isReadOnly={false}/>
+  <Match key={i} num={i} numberOfMatch={i} isReadOnly={false} />
   )
   
   const restulsMatch = ([...Array(n)].map((e,i)=>
@@ -21,6 +23,7 @@ function App() {
   ))
     console.log(restulsMatchSimulado)
     setResultados(restulsMatchSimulado)
+    console.log({matchs})
   }
 
 

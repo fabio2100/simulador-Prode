@@ -22,24 +22,32 @@ function Team(){
 }
 
 function Puntuacion(props){
-  const [elegido,setElegido] = useState();
   const isReadOnly = props.isReadOnly;
   var resultado = props.resultado; 
+  const [selectElegido,setSelectElegido] = useState();
+  const [elegido,setElegido] = useState([]);
 
   const onChangeRadio1 = function(event){
-    setElegido(1);
+    console.log(`onchagen1`)
   }
   const onChangeRadio2 = function(event){
-    setElegido(2);
   }
   const onChangeRadio3 = function(event){
-    setElegido(3);
+  }
+
+  const onChangeRadio = ({target}) => {
+    console.log('onchagen1')
+    console.log({target})
+    setElegido(target.value)
+
   }
   return (  
     <> 
-        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio1}  disabled={isReadOnly ? true : false} checked={resultado===1 || elegido === 1}></input>
-        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio2}  disabled={isReadOnly ? true : false} checked={resultado===2 || elegido === 2}></input>
-        <input type="radio" className='radioButton' name={props.name}  onChange={onChangeRadio3} disabled={isReadOnly ? true : false} checked={resultado===3 || elegido === 3}></input>         
+    <div name={selectElegido} onChange={onChangeRadio}>
+        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio}  disabled={isReadOnly ? true : false} checked={resultado===1 || elegido === 1}></input>
+        <input type="radio" className='radioButton' name={props.name} onChange={onChangeRadio}  disabled={isReadOnly ? true : false} checked={resultado===2 || elegido === 2}></input>
+        <input type="radio" className='radioButton' name={props.name}  onChange={onChangeRadio} disabled={isReadOnly ? true : false} checked={resultado===3 || elegido === 3}></input>         
+        </div>
     </>
   )
 }
